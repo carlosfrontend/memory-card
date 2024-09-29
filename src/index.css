@@ -1,1 +1,11 @@
-
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+:root{
+  padding: 0;
+  margin: 0;
+  background-color: rgba(217, 241, 79, 0.754);
+}
