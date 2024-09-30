@@ -1,7 +1,7 @@
 import errorLogo from '../assets/alert-outline.svg';
 import '../styles/Error.css';
 
-export default function Error({ errorMessage }) {
+export default function Error() {
     return (
         <div className="error-box">
             <img src={errorLogo} alt="" />
