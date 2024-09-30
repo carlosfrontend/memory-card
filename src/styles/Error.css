@@ -1,0 +1,27 @@
+.error-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: left;
+}
+
+.error-box img {
+    width:200px;
+}
+
+.error-box p{
+    font-size: 1.3rem;
+    font-family: "Press Start 2P", system-ui;
+    text-align: center;
+    line-height: 1.65;
+    width: 15ch;
+}
+.text-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}

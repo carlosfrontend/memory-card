@@ -1,10 +1,10 @@
 import '../styles/Card.css';
 
-export default function Card() {
+export default function Card({name, imageUrl}) {
     return (
         <div className="card">
-            <img src="https://placehold.co/280x300" alt="" />
-             <span>Pommenchu Rikitaun</span>
+            <img src={imageUrl} alt={name} />
+             <span>{name}</span>
         </div>
     )
 }
