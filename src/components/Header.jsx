@@ -1,4 +1,4 @@
-import pokemonLogo from '../assets/256px-International_Pokémon_logo.svg.png';
+import pokemonLogo from '../assets/pokemon_logo.png';
 import '../styles/Header.css';
 
 export default function Header({ text, logoAltText }) {
@@ -10,7 +10,7 @@ export default function Header({ text, logoAltText }) {
                     <strong>Score: </strong><span>20</span>
                 </div>
                 <div className="score">
-                    <strong>Highest Score: </strong><span>16</span>
+                    <strong>Best Score: </strong><span>16</span>
                 </div>
             </div>
         </header>
