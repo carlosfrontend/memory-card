@@ -12,6 +12,10 @@ footer {
   width: 100%;
   background-color: #f1eae5;
   font-family: "Open Sans", sans-serif;
+  position: relative;
+  bottom: 0;
+  position: relative;
+  z-index: -1;
 }
 
 .github-logo {

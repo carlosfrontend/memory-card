@@ -5,7 +5,10 @@ header{
     font-family: "Press Start 2P", system-ui;
     background-color: rgb(233, 7, 7);
     padding: 1em 0;
-    gap:1em
+    gap:1em;
+    position:sticky;
+    top: 0;
+    width: 100%;
 }
 
 header h1{
