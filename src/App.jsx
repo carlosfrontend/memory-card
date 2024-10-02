@@ -8,27 +8,31 @@ import Error from './components/Error'
 import { shuffle } from './AuxiliaryFunctions/shuffle'
 
 function App() {
+
   const [isLoaded, setIsLoaded] = useState(false);
   const [isError, setIsError] = useState(false);
   const [characters, setCharacters] = useState([]);
+  const [myError, setMyError] = useState('');
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
 
   useEffect(() => {
-    const urls = [
-      "https://pokeapi.co/api/v2/pokemon/25",
-      "https://pokeapi.co/api/v2/pokemon/26",
-      "https://pokeapi.co/api/v2/pokemon/27",
-      "https://pokeapi.co/api/v2/pokemon/28",
-      "https://pokeapi.co/api/v2/pokemon/30",
-      "https://pokeapi.co/api/v2/pokemon/40",
-      "https://pokeapi.co/api/v2/pokemon/50",
-      "https://pokeapi.co/api/v2/pokemon/70",
-      "https://pokeapi.co/api/v2/pokemon/34",
-      "https://pokeapi.co/api/v2/pokemon/2",
-      "https://pokeapi.co/api/v2/pokemon/90",
-      "https://pokeapi.co/api/v2/pokemon/19"
-    ];
+
+    // LEVEL MANAGEMENT
+
+    let pokemonsIds = [];
+    const FROM = 20;
+    const TO = 31;
+
+    for (let i = FROM; i <= TO; i++) {
+      pokemonsIds.push(i);
+    }
+
+    // END LEVEL MANAGEMENT
+
+    shuffle(pokemonsIds)
+
+    const urls = pokemonsIds.map(id => `https://pokeapi.co/api/v2/pokemon/${id}`);
 
     const fetchData = urls.map(url => fetch(url, { mode: 'cors' }));
 
@@ -47,55 +51,79 @@ function App() {
         visited: false
       }))
       setCharacters(pokemons);
-      setIsLoaded(true)
+      setIsLoaded(true);
     }).catch((error) => {
-      setIsError(true)
-      console.log(error)
+      setIsError(true);
+      setMyError(error.message);
     })
 
+  }, []);
 
-  }, [])
+
+
+
+  function handleClick(e) {
+    const charactersCopy = characters.slice();
+  
+    const target = charactersCopy.find(el => el.id === +e.currentTarget.getAttribute('data-id'));
+    shuffle(charactersCopy);
+    setCharacters(charactersCopy);
+
+    if (target.visited === false) {
+      setScore(score + 1)
+      target.visited = true;
+    } else {
+      setBestScore(score);
+      setScore(0);
+      charactersCopy.map(el => el.visited = false);
+      setCharacters(charactersCopy);
+      shuffle(charactersCopy);
+      if (score < bestScore) {
+        const bestScoreCopy = bestScore;
+        setBestScore(bestScoreCopy);
+        charactersCopy.map(el => el.visited = false);
+        shuffle(charactersCopy);
+        setCharacters(charactersCopy);
+      }
+    }
+
+  }
+
+
+  useEffect(() => {
+    const wasAllVisited = characters.every(el => el.visited === true);
+
+    function updateBestScore(wasAllVisited) {
+      if (wasAllVisited === true) {
+        let scoreCopy = score;
+        if (score === characters.length) {
+          setScore(0);
+          setBestScore(scoreCopy);
+          characters.map(el => el.visited = false);
+          shuffle(characters);
+          setCharacters(characters);
+        } else if (score > bestScore) {
+          setBestScore(scoreCopy);
+        }
+
+      }
+      return () => setScore((score) => score + 1)
+    }
+    updateBestScore(wasAllVisited);
+
+  }, [characters, score, bestScore,]);
+
 
 
   if (isError) {
     return (
       <div className="app">
-        <Error />
+        <Error myError={myError} />
       </div>
     )
   }
 
-  function handleClick(e) {
-    const charactersCopy = characters.slice();
-    const [target] = charactersCopy.filter(character => {
-      if (character.id === +e.currentTarget.getAttribute('data-id')) {
-        return character;
-      }
-    });
 
-    setCharacters(charactersCopy);
-    shuffle(charactersCopy);
-    setCharacters(charactersCopy);
-
-    if (target.visited === false) {
-      target.visited = true;
-      setScore(score + 1);
-    } else {
-      setBestScore(score);
-      setScore(0);
-      const charactersCopy = characters.slice()
-      charactersCopy.map(character => character.visited = false);
-      setCharacters(charactersCopy)
-    }
-
-    if(score === characters.length - 1){
-      setBestScore(score + 1);
-      setScore(0);
-      const charactersCopy = characters.slice()
-      charactersCopy.map(character => character.visited = false);
-      setCharacters(charactersCopy)
-    }
-  }
 
   if (isLoaded) {
     return (

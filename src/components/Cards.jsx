@@ -1,7 +1,8 @@
 import '../styles/Cards.css';
 import Card from './Card';
 
-export default function Cards({ characters, handleClick }) {
+export default function Cards({ characters, handleClick}) {
+   
     return (
         <div className="cards-container">
             <main className="cards">
