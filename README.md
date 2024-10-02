@@ -1,8 +1,14 @@
-# React + Vite
+# Project: Memory Card 
+( React Course )
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## The Odin Project
 
-Currently, two official plugins are available:
+A memory card game in which it is not allowed to click the same card twice.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Links:
+
+:white_check_mark: [Assignments](https://www.theodinproject.com/lessons/node-path-react-new-memory-card#assignment) :blue_book:
+
+:white_check_mark: [Live Preview](https://memory-card-roan.vercel.app/) :computer:
+
+Happy Coding!! :coffee: :rocket:
