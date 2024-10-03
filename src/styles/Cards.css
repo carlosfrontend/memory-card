@@ -1,5 +1,5 @@
-.cards-container{
-    padding: 2em;
+.cards-container {
+  padding: 2em;
 }
 
 .cards {
@@ -12,9 +12,10 @@
   padding: 1em 0;
 }
 
-@media (max-width:425px) {
-    .cards-container {
-        padding: 0;
-        overflow: scroll;
-    }
+@media (max-width: 425px) {
+  .cards-container {
+    padding: 0;
+    overflow-y: scroll;
+    min-height: 100vh;
+  }
 }
