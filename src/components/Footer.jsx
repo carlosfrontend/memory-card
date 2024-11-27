@@ -7,9 +7,11 @@ export default function Footer() {
         <footer>
 
             <div className="profile-logos">
-                <a href="https://www.linkedin.com/in/carlosfrontend" target='_blank' referrerPolicy='no-referrer'><img className='linkedin-logo' src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original-wordmark.svg" alt='linkedin logo' /></a>
-                <a href="https://github.com/carlosfrontend" target='_blank' referrerPolicy='no-referrer'><img className='github-logo' src={gitHubLogo} alt='github logo' /></a>
-                <a href="https://x.com/CarlosFrontEnd" target='_blank' referrerPolicy='no-referrer'> <img className='x-logo' src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" alt='twitter x logo' /></a>
+                <a href="https://www.linkedin.com/in/carlosfrontend" target='_blank' referrerPolicy='no-referrer'><i className="devicon-linkedin-plain-wordmark colored"></i></a>
+                <a href="https://github.com/carlosfrontend" target='_blank' referrerPolicy='no-referrer'><i className="devicon-github-original-wordmark colored"></i>
+                </a>
+                <a href="https://x.com/CarlosFrontEnd" target='_blank' referrerPolicy='no-referrer'> <i className="devicon-twitter-original colored"></i>
+                </a>
             </div>
             <div className="created-container">
                 <strong className="created">Created with with</strong>
