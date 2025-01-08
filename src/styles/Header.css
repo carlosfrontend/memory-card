@@ -7,6 +7,9 @@ header {
   padding: 1em 0;
   gap: 1em;
   width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
 header h1 {
@@ -45,22 +48,17 @@ header h1 {
 }
 
 @media (max-width: 735px) {
-  header {
-    position: sticky;
-    top: 0;
-  }
   header img {
     height: 5vh;
   }
 
-  header h1{
-    font-size: .6rem;
+  header h1 {
+    font-size: 0.6rem;
   }
   .scores {
     justify-content: center;
     width: 100%;
     flex-direction: row;
-    
   }
 
   .score {

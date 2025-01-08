@@ -11,10 +11,10 @@ footer {
   width: 100vw;
   color: #ffffff;
   font-family: "Open Sans", sans-serif;
-  position: relative;
-  bottom: 0;
-  position: relative;
   background-color: #231e1e;
+  position: relative;
+  top: 15em;
+  left: 0;
 }
 
 .profile-logos > a,
