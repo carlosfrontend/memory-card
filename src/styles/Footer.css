@@ -1,20 +1,30 @@
 .name-container {
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 5vh;
-  font-size: 1.8rem;
-  gap: 0.5em;
+  gap: 1em;
+  line-height: 170%;
 }
 
 footer {
-  width: 100%;
-  background-color: #f1eae5;
+  width: 100vw;
+  color: #ffffff;
   font-family: "Open Sans", sans-serif;
   position: relative;
   bottom: 0;
   position: relative;
+  background-color: #231e1e;
+}
+
+.profile-logos > a,
+.created-container > a {
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-logos > a:hover,
+.created-container > a:hover {
+  transform: scale(1.2);
 }
 
 .profile-logos {
@@ -26,27 +36,30 @@ footer {
   padding: 2em 0;
 }
 
-.profile-logos i{
-  font-size: 5rem;
-  padding: 1em;
-}
-
 .created-container {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10vh;
-  padding-bottom: 1em;
+  gap: 1em;
 }
-.created {
-  font-size: 1.5rem;
-  padding-right: 1em;
+
+.social-link,
+.technology-link {
+  text-decoration: none;
+  color: #231e1e;
 }
-.vite-logo,
-.react-logo {
-  width: 80px;
-  padding-right: 1em;
+
+.social-link:nth-child(1) {
+  stroke: rgb(238, 227, 227);
+  fill: #0b55aa;
+}
+
+.social-link:nth-child(2) {
+  color: #a5bde2;
+}
+.social-link:nth-child(3) {
+  color: white;
 }
 
 @media (max-width: 870px) {
@@ -58,31 +71,11 @@ footer {
   .name-container {
     flex-direction: column;
     height: auto;
-    padding-top: 1em;
+    padding: 2em 0;
+    gap: 0;
   }
 
-  .name-container span,
-  .name-container strong {
-    font-size: 1.3rem;
-  }
-
-  .profile-logos {
-    flex-direction: column;
-    gap: 2em;
-  }
-
-  .created-container {
-    flex-direction: column;
-    height: auto;
-    margin-top: 2em;
-    gap: 2em;
-    padding: 2em;
-  }
   .created {
-    font-size: 1.2rem;
-  }
-  .vite-logo,
-  .react-logo {
-    width: 70px;
+    font-size: 0.9rem;
   }
 }
